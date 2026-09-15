@@ -11,6 +11,13 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS VACANCIES(
           timestamp TEXT)  """)
 connection.commit()
 
+def add_cv_skill(skill_name):
+    cursor.execute("""INSERT INTO CV_SKILLS (skill_name) VALUES (?)""",(skill_name,))
+    connection.commit()
+
+def clear_cv_skills():
+    cursor.execute("""DELETE FROM CV_SKILLS """)
+    connection.commit()
 
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS CV_SKILLS(
