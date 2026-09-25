@@ -33,4 +33,13 @@ connection.commit()
 #cursor.execute("""SELECT name FROM sqlite_master WHERE type='table' """)
 #answer=cursor.fetchall()
 #print(answer)
+def add_skill(id):
+    cursor.execute("""INSERT INTO VACANCIES (id) VALUES (?)""",(id,))
+    connection.commit()
+    
+
+def check_vacancies(id):
+    cursor.execute("""SELECT*FROM VACANCIES WHERE id=? """,(id,))
+    id_vacancies=cursor.fetchone()
+    return id_vacancies
 
